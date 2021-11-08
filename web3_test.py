@@ -10,6 +10,9 @@ web3 = Web3(Web3.HTTPProvider(infura_url))
 
 # get latest 10 blocks
 latest = web3.eth.blockNumber
-for i in range(0, 10):
-  print(web3.eth.getBlock(latest - i))
+#for i in range(0, 10):
+#  print(web3.eth.getBlock(latest - i))
+
+block_latest = web3.eth.getBlock(latest)
+print(block_latest)
 
