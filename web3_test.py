@@ -13,6 +13,9 @@ latest = web3.eth.blockNumber
 #for i in range(0, 10):
 #  print(web3.eth.getBlock(latest - i))
 
-block_latest = web3.eth.getBlock(latest)
+block_latest = web3.eth.get_block(latest)
+transactions = block_latest["transactions"]
+len_trans = len(transactions)
 print(block_latest)
+print(len_trans)
 
