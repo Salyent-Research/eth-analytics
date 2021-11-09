@@ -1,3 +1,5 @@
+import time
+import logging
 import numpy as np
 from web3 import Web3
 from decouple import config
@@ -6,6 +8,7 @@ from datetime import datetime
 INFURA_PROJECT_ID = config("INFURA_PROJECT_ID")
 INFURA_PROJECT_SECRET = config("INFURA_PROJECT_SECRET")
 
+start_time = time.time()
 # Fill in your infura API key here
 infura_url = "https://:{secret}@mainnet.infura.io/v3/{proj_id}".format(proj_id = INFURA_PROJECT_ID, secret = INFURA_PROJECT_SECRET)
 web3 = Web3(Web3.HTTPProvider(infura_url))
@@ -30,5 +33,6 @@ for transaction in transactions:
     wei += info["value"]
 eth = wei / 1000000000000000000
 print("Total Value of Block: {}".format(eth))
+logging.critical("Total execution time in seconds: %f" %(time.time()-start_time))
 
 
