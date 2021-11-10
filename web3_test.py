@@ -30,9 +30,7 @@ wei = 0
 for transaction in transactions:
     # Need to convert bytes to hexbytes using .hex() method
     info = web3.eth.get_transaction(transaction.hex())
-    wei += info["value"]
-eth = wei / 1000000000000000000
-print("Total Value of Block: {}".format(eth))
-logging.critical("Total execution time in seconds: %f" %(time.time()-start_time))
+    wei += 1
+    print(wei)
 
 
